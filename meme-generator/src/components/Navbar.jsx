@@ -2,7 +2,7 @@ import MemeLogo from '/images/meme-logo.svg'
 
 export default function Navbar() {
     return (
-        <nav className='bg-gradient-to-r from-[#672280] to-[#A626D3] flex place-items-center justify-between flex-wrap px-10 py-6'>
+        <nav className='bg-gradient-to-r from-fuchsia-900 to-fuchsia-600 flex place-items-center justify-between flex-wrap px-10 py-6'>
             <div className='flex gap-3'>
                 <img src={MemeLogo} alt="meme logo" />
                 <h2 className='text-white text-4xl font-bold'>Meme Generator</h2>
