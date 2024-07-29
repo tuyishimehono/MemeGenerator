@@ -32,7 +32,7 @@ export default function Meme(){
     }
     return (
         <main>
-            <form className="px-10 pt-7">
+            <form className="pt-7">
                 <div className="grid grid-cols-2 gap-8 pb-8">
                     <div className="flex flex-col gap-2">
                         <label className="text-xl flex flex-col gap-2">Top text
@@ -62,9 +62,9 @@ export default function Meme(){
                 <button onClick={handleGetMeme} className="bg-gradient-to-r from-fuchsia-900 to-fuchsia-600 w-full py-3 rounded-md text-white text-3xl">Get a new meme image  🖼</button>
             </form>
             <div className="relative">
-                <img src={meme.memeImage} alt="meme image" className="max-w-[100%] pt-8 pb-20 px-10"/>
-                <h2 className="text-5xl absolute top-9 px-10 bg-white text-center">{meme.topText}</h2>
-                <h2 className="text-5xl absolute bottom-20 px-10 bg-white flex items-center">{meme.bottomText}</h2>
+                <img src={meme.memeImage} alt="meme image" className="max-w-[100%] pt-8 pb-20"/>
+                <h2 className="text-4xl absolute top-9 px-2 uppercase left-14 bg-white font-semibold">{meme.topText}</h2>
+                <h2 className="text-4xl absolute bottom-20 px-2 uppercase left-12 bg-white font-semibold">{meme.bottomText}</h2>
             </div>
         </main>
     )
