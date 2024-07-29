@@ -14,7 +14,7 @@ export default function Meme(){
             .then(data => setAllMemes(data.data.memes))
     })
     
-    function handleGetMeme(e) {
+    function getMeme(e) {
         e.preventDefault()
         const memesArray = memesData.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
@@ -59,7 +59,7 @@ export default function Meme(){
                         </label>
                     </div>
                 </div>
-                <button onClick={handleGetMeme} className="bg-gradient-to-r from-fuchsia-900 to-fuchsia-600 w-full py-3 rounded-md text-white text-3xl">Get a new meme image  🖼</button>
+                <button onClick={getMeme} className="bg-gradient-to-r from-fuchsia-900 to-fuchsia-600 w-full py-3 rounded-md text-white text-3xl">Get a new meme image  🖼</button>
             </form>
             <div className="relative">
                 <img src={meme.memeImage} alt="meme image" className="max-w-[100%] pt-8 pb-20"/>
