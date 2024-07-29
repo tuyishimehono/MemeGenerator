@@ -1,12 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import memesData from '../../memesData'
 export default function Meme(){
     const [meme, setMeme] = useState({
-        memeImage : "https://i.imgflip.com/3lmzyx.jpg",
-    })
-    const [formData, setFormData] = useState({
         topText: "",
         bottomText: "",
+        memeImage : "https://i.imgflip.com/3lmzyx.jpg",
+    })
+    const [allMemes, setAllMemes] = useState([]);
+
+    useEffect(() => {
+        fetch('https://api.imgflip.com/get_memes')
+            .then(res => res.json())
+            .then(data => setAllMemes(data.data.memes))
     })
     
     function handleGetMeme(e) {
@@ -17,18 +22,17 @@ export default function Meme(){
     }
 
     function handleChanges(e){
-        e.preventDefault()
-        
+        // e.preventDefault()
         const {name, value} = e.target
-        setFormData(prevFormData=> ({
-            ...prevFormData,
+        setMeme(prevMeme=> ({
+            ...prevMeme,
             [name] : value
         }))
         
     }
     return (
         <main>
-            <form className="px-10 pt-7" onSubmit={handleGetMeme}>
+            <form className="px-10 pt-7">
                 <div className="grid grid-cols-2 gap-8 pb-8">
                     <div className="flex flex-col gap-2">
                         <label className="text-xl flex flex-col gap-2">Top text
@@ -59,8 +63,8 @@ export default function Meme(){
             </form>
             <div className="relative">
                 <img src={meme.memeImage} alt="meme image" className="max-w-[100%] pt-8 pb-20 px-10"/>
-                <h2 className="text-5xl absolute top-9 px-10 bg-white text-center">{formData.topText}</h2>
-                <h2 className="text-5xl absolute bottom-20 px-10 bg-white flex items-center">{formData.bottomText}</h2>
+                <h2 className="text-5xl absolute top-9 px-10 bg-white text-center">{meme.topText}</h2>
+                <h2 className="text-5xl absolute bottom-20 px-10 bg-white flex items-center">{meme.bottomText}</h2>
             </div>
         </main>
     )
