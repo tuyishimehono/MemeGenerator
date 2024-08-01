@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import memesData from '../../memesData'
 export default function Meme(){
     const [meme, setMeme] = useState({
         topText: "",
@@ -16,9 +15,9 @@ export default function Meme(){
     
     function getMeme(e) {
         e.preventDefault()
-        const memesArray = memesData.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        setMeme(prevMeme => ({...prevMeme, memeImage: memesArray[randomNumber].url}))
+        // const memesArray = memesData.data.memes
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
+        setMeme(prevMeme => ({...prevMeme, memeImage: allMemes[randomNumber].url}))
     }
 
     function handleChanges(e){
